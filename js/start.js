@@ -39,7 +39,6 @@ function goResult() {
       result.style.display = "block";
     }, 450);
   });
-  calcResult();
   setResult();
 }
 

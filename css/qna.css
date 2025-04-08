@@ -1,0 +1,22 @@
+.qBox {
+  background-color: whitesmoke;
+}
+
+.answerList {
+  background-color: whitesmoke;
+  border: none;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
+
+.answerList:hover,
+.answerList:focus {
+  background-color: #f0f0f0;
+}
+
+.answerList:active {
+  background-color: gray;
+}

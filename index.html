@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="./css/default.css" />
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/qna.css" />
+    <link rel="stylesheet" href="./css/result.css" />
     <link rel="stylesheet" href="./css/animation.css" />
   </head>
   <body>
@@ -62,15 +63,19 @@
         >
           <h1>당신의 결과는?!</h1>
 
-          <div id="resultName"></div>
-          <div id="resultDesc"></div>
+          <p id="resultName"></p>
+          <p id="resultDesc" class="fs-3"></p>
 
           <div
             id="resultImg"
             class="col-lg-6 col-md-8 col-sm-10 col-12 mx-auto"
           ></div>
 
-          <button type="button" class="btn btn-outline-danger mt-3">
+          <button
+            type="button"
+            class="btn btn-outline-danger mt-3"
+            onclick="shareResult()"
+          >
             공유하기
           </button>
         </section>

@@ -40,6 +40,17 @@ function goNext(qIndex) {
   for (let i in qnaList[qIndex].a) {
     addAnswer(qnaList[qIndex].a[i].answer, qIndex);
   }
+
+  const progress = document.querySelector(".progress");
+  const progressBar = document.querySelector(".progress-bar");
+
+  progressBar.style.width = (100 / qnaList.length) * (qIndex + 1) + "%";
+  progress.setAttribute(
+    "aria-valuenow",
+    Math.trunc(((qIndex + 1) / qnaList.length) * 100)
+  );
+  progressBar.textContent =
+    Math.trunc(((qIndex + 1) / qnaList.length) * 100) + "%";
 }
 
 function start() {

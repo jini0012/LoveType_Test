@@ -1,44 +1,31 @@
 const main = document.querySelector("#main");
 const qna = document.querySelector("#qna");
 const result = document.querySelector("#result");
-const selectList = [];
+const selectList = Array(12).fill(0);
+
+function shareResult() {}
 
 function calcResult() {
-  const pointArray = [
-    { name: "mouse", value: 0, key: 0 },
-    { name: "cow", value: 0, key: 1 },
-    { name: "tiger", value: 0, key: 2 },
-    { name: "rabbit", value: 0, key: 3 },
-    { name: "dragon", value: 0, key: 4 },
-    { name: "snake", value: 0, key: 5 },
-    { name: "horse", value: 0, key: 6 },
-    { name: "sheep", value: 0, key: 7 },
-    { name: "monkey", value: 0, key: 8 },
-    { name: "chick", value: 0, key: 9 },
-    { name: "dog", value: 0, key: 10 },
-    { name: "pig", value: 0, key: 11 },
-  ];
+  const selectResult = selectList.indexOf(Math.max(...selectList));
+  return selectResult;
+}
 
-  for (let i = 0; i < selectList.length; i++) {
-    const target = qnaList[i].a[selectList[i]].type;
-    for (let j = 0; j < target.length; j++) {
-      for (let k = 0; k < pointArray.length; k++) {
-        if (target[j] === pointArray[k].name) {
-          pointArray[k].value++;
-        }
-      }
-    }
-  }
+function setResult() {
+  const point = calcResult(); // 가장 많이 선택된 답변의 인덱스 값
 
-  const resultArray = pointArray.sort((a, b) => {
-    if (a.value > b.value) return -1;
-    if (a.value < b.value) return 1;
-    return 0;
-  });
+  const resultName = document.querySelector("#resultName");
+  resultName.innerHTML = infoList[point].name; // 결과 이름
 
-  let resultType = resultArray[0].key;
+  const resultImg = document.querySelector("#resultImg");
+  const image = document.createElement("img");
+  const imgURL = "img/image-" + point + ".png"; // 결과 이미지
+  image.src = imgURL; // 결과 이미지 경로
+  image.alt = infoList[point].name + " 이미지"; // 결과 이미지 대체 텍스트
+  image.classList.add("img-fluid"); // 부트스트랩 클래스 추가
+  resultImg.appendChild(image); // 결과 이미지
 
-  return resultType;
+  const resultDesc = document.querySelector("#resultDesc");
+  resultDesc.innerHTML = infoList[point].desc; // 결과 설명
 }
 
 function goResult() {
@@ -53,6 +40,7 @@ function goResult() {
     }, 450);
   });
   calcResult();
+  setResult();
 }
 
 function addAnswer(answerText, qIndex, aIndex) {
@@ -77,6 +65,11 @@ function addAnswer(answerText, qIndex, aIndex) {
         children[i].style.animation = "fadeOut 0.5s";
       }
       setTimeout(() => {
+        const target = qnaList[qIndex].a[aIndex].type;
+        for (let i = 0; i < target.length; i++) {
+          selectList[target[i]]++;
+        }
+
         selectList[qIndex] = aIndex; // 사용자가 어떤 버튼에서 어떤 답변을 선택했는지 저장
         for (let i = 0; i < children.length; i++) {
           children[i].style.display = "none";

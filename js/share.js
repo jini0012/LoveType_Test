@@ -3,7 +3,7 @@ const url = "https://mbti-test-phi-six.vercel.app/";
 function setShare() {
   const type = calcResult();
   const shareUrl = url + `page/result.html?type=${type}`;
-  const shareTitle = "십이간지 연애유형 결과과";
+  const shareTitle = "십이간지 연애유형 결과";
   const shareDecs = infoList[type].name;
   const shareImage = url + "img/image-" + type + ".png";
 

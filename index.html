@@ -34,6 +34,14 @@
     <link rel="stylesheet" href="./css/qna.css" />
     <link rel="stylesheet" href="./css/result.css" />
     <link rel="stylesheet" href="./css/animation.css" />
+    <script
+      src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js"
+      integrity="sha384-DKYJZ8NLiK8MN4/C5P2dtSmLQ4KwPaoqAfyA/DfmEc1VDxu4yyC7wy6K1Hs90nka"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      Kakao.init("c089c8172def97eb00c07217cae17495");
+    </script>
   </head>
   <body>
     <main>
@@ -86,7 +94,7 @@
           <button
             type="button"
             class="btn btn-outline-danger mt-3"
-            onclick="shareResult()"
+            onclick="setShare()"
           >
             공유하기
           </button>
@@ -95,5 +103,6 @@
     </main>
     <script src="./js/data.js"></script>
     <script src="./js/start.js"></script>
+    <script src="./js/share.js"></script>
   </body>
 </html>

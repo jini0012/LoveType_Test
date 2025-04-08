@@ -3,8 +3,6 @@ const qna = document.querySelector("#qna");
 const result = document.querySelector("#result");
 const selectList = Array(12).fill(0);
 
-function shareResult() {}
-
 function calcResult() {
   const selectResult = selectList.indexOf(Math.max(...selectList));
   return selectResult;

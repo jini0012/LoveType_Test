@@ -1,0 +1,14 @@
+body {
+  background-color: pink;
+}
+
+#main {
+  background-color: whitesmoke;
+  width: 80%;
+}
+
+* {
+  font-family: "Nanum Pen Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}

@@ -22,7 +22,8 @@
   <body>
     <main>
       <div class="container">
-        <section class="mx-auto rounded-4 mt-5 text-center py-5 px-3" id="main">
+        <!-- main 시작 section -->
+        <section class="mx-auto rounded-4 my-5 text-center py-5 px-3" id="main">
           <h1>십이간지로 알아보는 연애유형</h1>
           <div class="col-lg-6 col-md-8 col-sm-10 col-12 mx-auto">
             <img src="./img/main.png" class="img-fluid" alt="main Image" />
@@ -39,6 +40,7 @@
             시작하기
           </button>
         </section>
+        <!-- qna 하는 section -->
         <section id="qna" class="mx-auto">
           <div
             class="progress mt-5"
@@ -53,7 +55,25 @@
           <p class="qBox text-center rounded-4 my-5 fs-3"></p>
           <div class="answerBox fs-4"></div>
         </section>
-        <section></section>
+        <!-- 결과를 보여주는 section -->
+        <section
+          class="mx-auto rounded-4 mt-5 text-center py-5 px-3"
+          id="result"
+        >
+          <h1>당신의 결과는?!</h1>
+
+          <div id="resultName"></div>
+          <div id="resultDesc"></div>
+
+          <div
+            id="resultImg"
+            class="col-lg-6 col-md-8 col-sm-10 col-12 mx-auto"
+          ></div>
+
+          <button type="button" class="btn btn-outline-danger mt-3">
+            공유하기
+          </button>
+        </section>
       </div>
     </main>
     <script src="./js/data.js"></script>

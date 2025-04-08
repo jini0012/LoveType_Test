@@ -1,5 +1,19 @@
 const main = document.querySelector("#main");
 const qna = document.querySelector("#qna");
+const result = document.querySelector("#result");
+
+function goResult() {
+  qna.style.WebkitAnimation = "fadeOut 1s";
+  qna.style.animation = "fadeOut 1s";
+  setTimeout(() => {
+    result.style.WebkitAnimation = "fadeIn 1s";
+    result.style.animation = "fadeIn 1s";
+    setTimeout(() => {
+      qna.style.display = "none";
+      result.style.display = "block";
+    }, 450);
+  });
+}
 
 function addAnswer(answerText, qIndex) {
   const a = document.querySelector(".answerBox");
@@ -33,6 +47,12 @@ function addAnswer(answerText, qIndex) {
 }
 
 function goNext(qIndex) {
+  // 전체 질문 개수에 도달했을 때 결과 페이지로 이동
+  if (qIndex === qnaList.length) {
+    goResult();
+    return;
+  }
+
   const q = document.querySelector(".qBox");
   q.innerHTML = qnaList[qIndex].q;
   const a = document.querySelector(".answerBox");

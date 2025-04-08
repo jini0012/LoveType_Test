@@ -5,18 +5,31 @@ function addAnswer(answerText, qIndex) {
   const a = document.querySelector(".answerBox");
   const answer = document.createElement("button");
   answer.classList.add("answerList");
+  answer.classList.add("my-3");
+  answer.classList.add("py-3");
+  answer.classList.add("fadeIn");
   a.appendChild(answer);
   answer.textContent = answerText;
 
-  answer.addEventListener("click", function () {
-    const children = document.querySelectorAll(".answerList");
+  answer.addEventListener(
+    "click",
+    function () {
+      const children = document.querySelectorAll(".answerList");
 
-    for (let i = 0; i < children.length; i++) {
-      children[i].disabled = true;
-      children[i].style.display = "none";
-    }
-    goNext(qIndex + 1);
-  });
+      for (let i = 0; i < children.length; i++) {
+        children[i].disabled = true;
+        children[i].style.WebkitAnimation = "fadeOut 0.5s";
+        children[i].style.animation = "fadeOut 0.5s";
+      }
+      setTimeout(() => {
+        for (let i = 0; i < children.length; i++) {
+          children[i].style.display = "none";
+        }
+        goNext(++qIndex);
+      }, 450);
+    },
+    false
+  );
 }
 
 function goNext(qIndex) {

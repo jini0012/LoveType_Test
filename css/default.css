@@ -9,6 +9,7 @@ body {
 
 #qna {
   display: none;
+  width: 80%;
 }
 
 * {
